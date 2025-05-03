@@ -8,7 +8,7 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "golang.go"       
+                "golang.go"
             ],
             "settings": {
                 "go.gopath": "/go" ,
@@ -16,5 +16,6 @@
                 "go.useLanguageServer": true
             }
         }
-    }
+    },
+    "postCreateCommand": "go install github.com/onsi/ginkgo/v2/ginkgo@latest"
 }
