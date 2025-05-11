@@ -35,7 +35,7 @@ func loadPem() credentials.TransportCredentials {
 // コンストラクタ TLSを利用
 func NewCommandServer(category pb.CategoryCommandServer, product pb.ProductCommandServer) *CommandServer {
 	// gRPCサーバを生成する
-	server := grpc.NewServer(grpc.Creds(loadPem()))
+	server := grpc.NewServer()
 	// CategoryCommandServerを登録する
 	pb.RegisterCategoryCommandServer(server, category)
 	// ProductCommandServerを登録する
