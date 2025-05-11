@@ -28,7 +28,9 @@ func CommandServiceLifecycle(lifecycle fx.Lifecycle, server *CommandServer) {
 			// 作成したgRPCサーバを起動する
 			go func() {
 				log.Printf("Command Server 開始 ポート番号: %v", port)
-				server.Server.Serve(listener)
+				if err := server.Server.Serve(listener); err != nil {
+					log.Fatalf("gRPCサーバー起動失敗: %v", err)
+				}
 			}()
 			return nil
 		},
